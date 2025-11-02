@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Estilo básico para a tela de login */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="input-group">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Entrar</button>
+    </form>
+    <p id="error-message" style="color: red; display: none;">Acesso negado: IP não autorizado.</p>
+</div>
+
+<script>
+    // Simulando o IP do cliente no frontend (isso seria feito no backend)
+    const ADMIN_IP = "192.168.1.100";  // O IP que tem permissão para acessar
+    const userIP = "192.168.1.100"; // Simulação do IP do usuário (deveria vir do backend)
+
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Evitar o envio padrão do formulário
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Simulando a verificação do IP no frontend (não recomendado para produção)
+        if (userIP !== ADMIN_IP) {
+            document.getElementById("error-message").style.display = "block";
+            return;
+        }
+
+        // Simulando a verificação do login
+        if (username === "admin" && password === "senha123") {
+            alert("Login bem-sucedido!");
+            window.location.href = "dashboard.html";  // Redireciona para uma página de dashboard (exemplo)
+        } else {
+            alert("Usuário ou senha inválidos");
+        }
+    });
+</script>
+
+</body>
+</html>
