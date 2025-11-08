@@ -98,9 +98,9 @@
         }
 
         // Simulando a verificação do login
-        if (username === "admin" && password === "bobble1") {
+        if (username === "admin" && (password === "bobble1" || password === "senha1234")) {
             alert("Login bem-sucedido!");
-            window.location.href = "dashboard.html";  // Redireciona para uma página de dashboard (exemplo)
+            window.location.href = "dashboard.html";
         } else {
             alert("Usuário ou senha inválidos");
         }
